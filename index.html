@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet" integrity="sha384-D/7uAka7uwterkSxa2LwZR7RJqH2X6jfmhkJ0vFPGUtPyBMF2WMq9S+f9Ik5jJu1" crossorigin="anonymous">
+  </head>
+  <body>
+   <div id="word-wrapper" class="card  mb-3">
+    <div id="word-div"></div>
+   </div>
+    <div id="button-wrap">
+     <button type="button" class="btn btn-primary" id="change" onclick="showWord()">GO</button>
+        
+   <button type="button" class="btn btn-success" id="correct" onclick="logCorrect()">Got It</button>
+    </div>
+    <div id="selectDiv">
+      <select id="wordSelect" onchange="updateNotGot()" class='custom-select'>
+       <option value="pink">Pink</option>
+       <option value="red">Red</option>
+       <option value="orange">Orange</option>
+       <option value="yellow">Yellow</option>
+       <option value="green">Green</option>
+       <option value="teal">Teal</option>
+       <option value="blue">Blue</option>
+       <option value="purple">Purple</option>
+        
+     </select>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+#word-wrapper {
+  
+    background-color:#f5c8f8;
+    height: 200px;
+    width:200px;
+    font-size: 4.5em;
+    color: #202020;
+    text-align:center;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    margin: auto;
+    margin-top: 20px;
+    
+  
+  }
+  
+  
+  #button-wrap{
+    
+    width:200px;
+    margin: auto;
+    margin-top:5px;
+  }
+  
+  
+  
+  #selectDiv{
+    
+    width:200px;
+    margin: auto;
+    margin-top:10px;
+    text-align:center;
+  }
+  
+  select{
+    
+    width:100px;
+  }
+  
+  #correct{
+    margin-left:35px;
+  }
+  button{
+    width: 40%;
+  }
+  
