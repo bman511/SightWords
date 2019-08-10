@@ -10,7 +10,8 @@ const tally = {
       'green':['its','said','make','by','do','put','friend','time','who','your','does','because'],
       'teal':['how','more','now','him','goes','are','them','there','they','their','that','some'],
       'blue':['was','were','when','from','but','had','no','want','or','all','been','as'],
-      'purple':['what','which','would','these','two','up','if','my','one','about','could','first']
+      'purple':['what','which','would','these','two','up','if','my','one','about','could','first'],
+      'white':['not','only','out','any',"don't",'many','then','where','why','saw','say','so']
       },
     'correct': [],
     'colors':{
@@ -21,7 +22,8 @@ const tally = {
       'green':'#26f627',
       'teal':'#16dff8',
       'blue':'#699bf1',
-      'purple':'#be69f1'
+      'purple':'#be69f1',
+      'white':'#ffffff'
     }
   }
   
@@ -37,7 +39,7 @@ const tally = {
   function getColor(){
     var el = document.getElementById("wordSelect"); 
     var wordSet = el.options[el.selectedIndex].value;
-    return tally.colors[wordSet]
+    return tally.colors[wordSet];
   }
   function updateColor(){
     var el = document.getElementById("word-wrapper");
@@ -60,7 +62,7 @@ const tally = {
     //Clear div of current word, called when new selection is made
    function clearDiv(){
      
-     document.getElementById("word-div").innerHTML = '';
+     document.getElementById("word-wrapper").innerHTML = '';
    }
    //Get the selection, update the array to work on, and create the scoreboard array
    function updateNotGot(){
@@ -104,7 +106,8 @@ const tally = {
       counter = 0;
     }
     currWord = notGotWords[counter];
-    document.getElementById("word-div").innerHTML = currWord;
+    document.getElementById("word-wrapper").innerHTML = currWord;
+    textFit(document.getElementById("word-wrapper"), {alignHoriz: true, alignVert: true});
     counter += 1;
   }
     //check if all words have been correctly identified
