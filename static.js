@@ -31,15 +31,18 @@ const tally = {
       counter,
       defaultArray;
   //Get the selected color from the dropdown, corresponding to the word array of interest
-  function getSelected(){
+  function getSetWord(){
     var el = document.getElementById("wordSelect");
     var wordSet = el.options[el.selectedIndex].value;
-    return tally.words[wordSet];
+    return wordSet;
+  }
+  function getSelected(){
+    let setChoice = getSetWord();
+    return tally.words[setChoice];
     }
   function getColor(){
-    var el = document.getElementById("wordSelect"); 
-    var wordSet = el.options[el.selectedIndex].value;
-    return tally.colors[wordSet];
+    let setChoice = getSetWord();
+    return tally.colors[setChoice];
   }
   function updateColor(){
     var el = document.getElementById("word-wrapper");
@@ -64,10 +67,30 @@ const tally = {
      
      document.getElementById("word-wrapper").innerHTML = '';
    }
+
+   function mixWords(arr){
+  
+    let newArr = [];
+    let allWords = arr;
+    let wordLen = allWords.length;
+    
+    while (newArr.length < wordLen){
+      let randIndex = Math.floor(Math.random()*allWords.length);
+      newArr.push(allWords[randIndex]);
+      allWords.splice(randIndex,1);
+      
+    }
+    
+    return newArr;
+
+  }
    //Get the selection, update the array to work on, and create the scoreboard array
    function updateNotGot(){
       
-      var selectedArr = getSelected();
+      
+      var selectedArr = mixWords(getSelected());
+      let setChoice = getSetWord();
+      tally.words[setChoice] = selectedArr;
       fillZeroArray(selectedArr);
       notGotWords = selectedArr.filter(notGot);
       clearDiv();
@@ -101,7 +124,7 @@ const tally = {
      updateMissBtn(); 
     
      if(counter === notGotWords.length){  
-      selectedArr = getSelected();
+      var selectedArr = getSelected();
       notGotWords = selectedArr.filter(notGot);
       counter = 0;
     }
@@ -118,7 +141,7 @@ const tally = {
    
     function logCorrect(){
   
-      selectedArr = getSelected();
+      var selectedArr = getSelected();
       //Adjust counter (it was already incremented in showWord)
       currIndex = counter - 1;
       //Return the word
@@ -130,7 +153,7 @@ const tally = {
       //Check if all the words have been identified
       if(allCorrect()){
         
-        alert('congrats!, all correct');
+        alert('Congrats! All correct!');
         updateNotGot();
         updateMissBtnBlue();
         return;
@@ -139,3 +162,25 @@ const tally = {
       showWord();
       
     }
+
+    /*
+    //will randomly pick from a list of items
+    function pickRandomLines(arr){
+  
+  let newArr = [];
+  
+  let allLines = arr;
+  
+  while (newArr.length < 3){
+    
+  let randIndex = Math.floor(Math.random()*allLines.length);
+  
+  newArr.push(allLines[randIndex]);
+  
+  allLines.splice(randIndex,1);
+    
+  }
+  
+  return newArr;
+}
+*/
